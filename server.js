@@ -1,7 +1,6 @@
 const next = require('next');
 const dev = process.env.NODE_ENV = 'production';
 const nextApp = next({dev});
-const nextHandler = nextApp.getRequestHandler();
 const port = parseInt(process.env.PORT, 10) || 3000;
 const DataLoader = require('./server/DataLoader.js');
 
@@ -25,6 +24,8 @@ nextApp.prepare().then(() => {
 
   io.on("connect", socket =>{
       socket.emit("connected");
+    
+      // init server-only processes
       let dataLoader = new DataLoader(socket);
   });
 });
