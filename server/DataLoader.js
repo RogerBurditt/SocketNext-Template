@@ -7,7 +7,7 @@ module.exports = class DataLoader{
 
     this.socket.on("LOAD_DATA", data => {
       // Do a load data thing here
-      // console.log(>> Load request received.);
+      // console.log(">> Load request received.");
     });
   }
 }
